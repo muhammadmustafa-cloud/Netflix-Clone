@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import HomeScreen from './Screens/HomeScreen'
+import AboutUs from './Screens/AboutUs'
+import NotFound from './Screens/NotFound'
+import ContactUs from './Screens/ContactUs'
+import MoviesPage from './Screens/Movies'
+import SingleMovie from './Screens/SingleMovie'
+import WatchPage from './Screens/WatchPage'
+import Login from './Screens/Login'
+import Register from './Screens/Register'
+import Profile from './Screens/Dashboard/Profile'
+import Aos from 'aos'
+import Password from './Screens/Dashboard/Password'
+import FavoritesMovies from './Screens/Dashboard/FavoritesMovies'
+import MovieList from './Screens/Dashboard/Admin/MovieList'
+import Dashboard from './Screens/Dashboard/Admin/Dashboard'
+import Categories from './Screens/Dashboard/Admin/Categories'
+import Users from './Screens/Dashboard/Admin/Users'
+import AddMovie from './Screens/Dashboard/Admin/AddMovie'
+import ScrollOnTop from './ScrollOnTop'
 
 function App() {
+  Aos.init()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <ScrollOnTop>
+
+      
+    <Routes>
+      <Route path='/' element={<HomeScreen/>}/>
+      <Route path='/about-us' element={<AboutUs/>}/>
+      <Route path='/contact-us' element={<ContactUs/>}/>
+      <Route path='/movies' element={<MoviesPage/>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/profile' element={<Profile/>}/>
+      <Route path='/password' element={<Password/>}/>
+      <Route path='/register' element={<Register/>}/>
+      <Route path='/favorites' element={<FavoritesMovies/>}/>
+      <Route path='/movieslist' element={<MovieList/>}/>
+      <Route path='/dashboard' element={<Dashboard/>}/>
+      <Route path='/categories' element={<Categories/>}/>
+      <Route path='/users' element={<Users/>}/>
+      <Route path='/addmovies' element={<AddMovie/>}/>
+      <Route path='/movie/:id' element={<SingleMovie/>}/>
+      <Route path='/watch/:id' element={<WatchPage/>}/>
+      <Route path='/*' element={<NotFound/>}/>
+    </Routes>
+    </ScrollOnTop>
+  )
 }
 
-export default App;
+export default App
